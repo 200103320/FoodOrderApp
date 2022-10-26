@@ -16,19 +16,26 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat_subrayada_bold"
         android:text="The Fastest in Delivery Food"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        tools:layout_editor_absoluteX="36dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="56dp"
         android:background="#FF9800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,18 +45,30 @@
         android:id="@+id/textView5"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="56dp"
         android:fontFamily="@font/montserrat_subrayada"
         android:text="Our job is to filling your tummy with delicious food and fast delivery"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="493dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <Button
-        android:id="@+id/elevatedButton"
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Elevated button"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="575dp" />
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="147dp"
+        android:backgroundTint="@color/black"
+        android:text="Get Started"
+        app:cornerRadius="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
