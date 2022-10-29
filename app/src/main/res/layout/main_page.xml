@@ -12,7 +12,7 @@
     android:background="#FBFBFB"
     android:backgroundTint="@color/light_white"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".HomeFragment">
 
 
     <TextView
@@ -20,12 +20,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="204dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="117dp"
-        android:layout_marginBottom="75dp"
         android:fontFamily="@font/montserrat_subrayada"
         android:text="7.49"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -35,9 +34,8 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="112dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="7dp"
-        android:layout_marginBottom="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView11"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
@@ -48,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat_subrayada"
         android:text="6.59"
         android:textColor="#000000"
@@ -60,7 +58,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="74dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
         app:srcCompat="@drawable/dollar" />
@@ -88,12 +86,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:srcCompat="@drawable/cheese_svg" />
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="272dp"
         android:layout_marginBottom="9dp"
         android:layout_weight="1"
@@ -103,25 +102,23 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="71dp"
-        android:layout_marginBottom="132dp"
         android:layout_weight="1"
         android:fontFamily="@font/montserrat_subrayada_bold"
         android:text="Pepperoni pizza"
         android:textColor="#000000"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textView7"
@@ -143,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:fontFamily="@font/montserrat_subrayada_bold"
         android:text="Categories"
@@ -220,10 +217,10 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
         android:backgroundTint="@color/orange"
         android:text="Burgers"
         app:cornerRadius="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -232,26 +229,28 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginBottom="6dp"
         android:backgroundTint="@color/orange"
         android:text="Pizza"
         app:cornerRadius="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="63dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="6dp"
         android:backgroundTint="@color/orange"
         android:text="Drinks"
         app:cornerRadius="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -269,15 +268,14 @@
         android:id="@+id/imageView4"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="17dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/piczcza_pepperoni" />
 
     <TextView
@@ -301,20 +299,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/_93_2937844_beef_icon_steak_icon_png" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:elevation="2dp"
-        app:menu="@menu/item_menu"
-        android:background="@drawable/rounded_croner"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemIconSize="30dp"
-        app:labelVisibilityMode="unlabeled"
-        app:itemIconTint="@drawable/item_selector"
-        android:id="@+id/bottom_navigation"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-         />
 </androidx.constraintlayout.widget.ConstraintLayout>
