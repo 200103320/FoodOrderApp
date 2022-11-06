@@ -2,9 +2,11 @@
 
 package com.example.foodorderproject
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -15,25 +17,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottom_navigation)
 
+        // BottomNavigation
         loadFragment(HomeFragment())
         bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
-        bottomNav.setOnNavigationItemReselectedListener {
+        bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> {
                     loadFragment(HomeFragment())
-                    return@setOnNavigationItemReselectedListener
                 }
                 R.id.nav_cart -> {
                     loadFragment(CartFragment())
-                    return@setOnNavigationItemReselectedListener
                 }
                 R.id.nav_profile -> {
                     loadFragment(ProfileFragment())
-                    return@setOnNavigationItemReselectedListener
                 }
-
             }
+            true
         }
+
 
 
     }
