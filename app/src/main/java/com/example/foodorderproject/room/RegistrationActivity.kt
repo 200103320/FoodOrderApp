@@ -9,14 +9,22 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.foodorderproject.R
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class RegistrationActivity : AppCompatActivity() {
-    var userId: EditText? = null
+    var email: EditText? = null
     var password: EditText? = null
     var name: EditText? = null
     var register: Button? = null
     var login: Button? = null
+    private val emailPattern = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+            "\\@" +
+            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+            "(" +
+            "\\." +
+            "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+            ")+"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +32,7 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        userId = findViewById(R.id.userId)
+        email = findViewById(R.id.email)
         password = findViewById(R.id.password)
         name = findViewById(R.id.name)
         register = findViewById(R.id.register)
@@ -33,16 +41,18 @@ class RegistrationActivity : AppCompatActivity() {
         register?.setOnClickListener(View.OnClickListener {
 
             val userEntity = UserEntity()
-            userEntity.userID = userId?.text.toString()
+            userEntity.email = email?.text.toString()
             userEntity.password = password?.text.toString()
             userEntity.name = name?.text.toString()
 
-            if (validateInput(userEntity)) {
+
+
+            if (validateInput(userEntity) && userEntity.email!!.matches(emailPattern.toRegex())) {
 
                 val db = Room.databaseBuilder(
                     applicationContext,
                     UserDatabase::class.java, "UserDatabase"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 Thread {
                     db.userDao()?.registerUser(userEntity)
                     runOnUiThread {
@@ -53,7 +63,11 @@ class RegistrationActivity : AppCompatActivity() {
                         ).show()
                     }
                 }.start()
-            } else {
+            }
+            else if(!userEntity.email!!.matches(emailPattern.toRegex())){
+                Toast.makeText(applicationContext, "Invalid Email", Toast.LENGTH_SHORT).show()
+            }
+            else {
                 Toast.makeText(applicationContext, "Fill All Fields!", Toast.LENGTH_SHORT).show()
             }
         })
@@ -68,7 +82,7 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun validateInput(userEntity: UserEntity): Boolean {
-        return !(userEntity.name!!.isEmpty() ||
+        return !(userEntity.email!!.isEmpty() ||
                 userEntity.password!!.isEmpty() ||
                 userEntity.name!!.isEmpty())
     }

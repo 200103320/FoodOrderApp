@@ -20,8 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
-        android:hint="Enter UserID"
-        android:id="@+id/userId"/>
+        android:hint="Enter Email"
+        android:id="@+id/email"/>
 
     <EditText
         android:inputType="textPassword"

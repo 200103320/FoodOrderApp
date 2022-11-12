@@ -9,6 +9,6 @@ interface UserDAO {
     @Insert
     fun registerUser(userEntity: UserEntity?)
 
-    @Query("SELECT * FROM users WHERE userId = (:userId) and password = (:password)")
-    fun login(userId: String?, password: String?): UserEntity?
+    @Query("SELECT * FROM users WHERE email = (:email) and password = (:password)")
+    fun login(email: String?, password: String?): UserEntity?
 }
