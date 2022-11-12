@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/light_white">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="bottomNav" type="String"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:background="@color/light_white">
+
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottomNav"
-            />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:elevation="2dp"
-        app:menu="@menu/item_menu"
-        android:background="@drawable/rounded_croner"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemIconSize="30dp"
-        app:labelVisibilityMode="unlabeled"
-        app:itemIconTint="@drawable/item_selector"
-        android:id="@+id/bottomNav"
+            android:layout_above="@+id/bottomNav" />
 
-        app:layout_constraintBottom_toBottomOf="parent"
-    />
-</RelativeLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:elevation="2dp"
+            app:menu="@menu/item_menu"
+            android:background="@drawable/rounded_croner"
+            app:itemRippleColor="@android:color/transparent"
+            app:itemIconSize="30dp"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconTint="@drawable/item_selector"
+            android:id="@+id/bottomNav"
+
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </RelativeLayout>
+</layout>

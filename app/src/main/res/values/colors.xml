@@ -16,4 +16,10 @@
     <color name="card_2">#F9E79F</color>
     <color name="card_3">#D7BDE2</color>
     <color name="card_4">#D2C3D8</color>
+
+    <color name="colorTextDefault">#131313</color>
+    <color name="colorTextLabelDefault">#353535</color>
+    <color name="colorTextHintDefault">#434343</color>
+
+    <color name="colorTextWhite">#F3F3F3</color>
 </resources>

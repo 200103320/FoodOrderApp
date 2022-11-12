@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.example.foodorderproject
 
 import android.content.Intent
@@ -19,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         // BottomNavigation
         loadFragment(HomeFragment())
-        bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
+        bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> {
@@ -34,9 +32,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-
-
     }
     private fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
