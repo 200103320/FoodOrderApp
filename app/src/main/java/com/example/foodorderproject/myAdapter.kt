@@ -22,6 +22,7 @@ class myAdapter(private val menuList : ArrayList<menu>) :
         holder.titleImage.setImageResource(currentItem.titleImage)
         holder.Heading.text = currentItem.heading
         holder.Heading1.text = currentItem.new_heading
+        holder.prices.text = currentItem.prices
     }
 
     override fun getItemCount(): Int {
@@ -32,7 +33,7 @@ class myAdapter(private val menuList : ArrayList<menu>) :
         val titleImage : ShapeableImageView = itemView.findViewById(R.id.title_image)
         val Heading : TextView = itemView.findViewById(R.id.Heading)
         val Heading1 : TextView = itemView.findViewById(R.id.Heading1)
-
+        val prices : TextView = itemView.findViewById(R.id.button)
     }
 
 }

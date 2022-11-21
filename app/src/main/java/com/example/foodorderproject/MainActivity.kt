@@ -3,10 +3,12 @@ package com.example.foodorderproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodorderproject.R.*
+import com.example.foodorderproject.room.RegistrationActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageId: Array<Int>
     lateinit var heading: Array<String>
     lateinit var new_heading: Array<String>
+    lateinit var prices: Array<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,13 +27,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(layout.main_page)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(id.bottom_navigation)
+        val pizzaButton = findViewById<Button>(id.button2)
+        val dessertsButton = findViewById<Button>(id.button4)
+        val drinksButton = findViewById<Button>(id.button6)
+        val reg_button = findViewById<Button>(id.button)
 
-        // Set Home selected
         bottomNavigationView.selectedItemId = id.home
 
-        // Perform item selected listener
-
-        // Perform item selected listener
+        reg_button.setOnClickListener {
+            startActivity(Intent(applicationContext, RegistrationActivity::class.java))
+        }
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 id.profile -> {
@@ -49,40 +55,91 @@ class MainActivity : AppCompatActivity() {
         })
 
         imageId = arrayOf(
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni,
-            drawable.piczcza_pepperoni
-
+            drawable.chrizo_fresh,
+            drawable.pepperoni,
+            drawable.ham_cheese,
+            drawable.ham_mushrooms,
+            drawable.hawaian,
+            drawable.meat_mix,
+            drawable.hoemmade,
+            drawable.indeika,
+            drawable.mango,
+            drawable.ice_cappu,
+            drawable.chocolate,
+            drawable.cheesecake,
+            drawable.fondan,
+            drawable.cookie,
+            drawable.cola,
+            drawable.colazero,
+            drawable.fanta,
+            drawable.sprite,
+            drawable.water,
         )
 
         heading = arrayOf(
-            "Pizza Peperoni",
-            "Pizza Peperoni",
-            "Pizza Peperoni",
-            "Pizza Peperoni",
-            "Pizza Peperoni",
-            "Pizza Peperoni",
-            "Pizza Peperoni",
-            "Pizza Peperoni",
-            "Pizza Peperoni"
+            "Chorizo Fresh",
+            "Pepperoni",
+            "Ham and Cheese",
+            "Ham and Mushrooms",
+            "Hawaiian",
+            "Meat Mix",
+            "Homemade",
+            "Turkey with cranberry sauce",
+            "Mango Shake",
+            "Ice Cappuchino",
+            "Chocolate shake",
+            "Cheesecake",
+            "Fondan",
+            "Cookie",
+            "Coca-Cola",
+            "Coca-Cola Zero",
+            "Fanta",
+            "Sprite",
+            "Water",
         )
 
         new_heading = arrayOf(
-            "1",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce",
-            "Chicken pepperoni, extra mozzarella, tomatoes, tomato sauce"
+            "Tomato sauce, mozzarella, spicy chicken chorizo, sweet pepper",
+            "Chicken pepperoni, extra mozzarella, tomato sauce",
+            "Chicken ham, extra mozzarella, alfredo sauce",
+            "Chicken ham, mushrooms, mozzarella, tomato sauce",
+            "Chicken ham, pineapples, mozzarella, tomato sauce",
+            "Turkey pastrami, spicy chicken chorizo, chicken ham, tomato sauce",
+            "Spicy chicken pepperoni, chicken ham, tomato sauce",
+            "Turkey, cranberry sauce, cranberries, red onion, alfredo sauce",
+            "Hot tropical summer in a glass - milkshake with mango puree",
+            "Cold coffee drink now with a creamy taste.",
+            "Sweet drink based on milk and ice cream with branded cocoa",
+            "The favorite of the guests - the most delicate curd cheesecake",
+            "French dessert with crispy crust and melted chocolate filling",
+            "Chocolate cookie with icing",
+            "",
+            "",
+            "",
+            "",
+            "",
+        )
+
+        prices = arrayOf(
+            "2700 tg",
+            "2200 t",
+            "2500 t",
+            "2550 t",
+            "2600 t",
+            "2800 t",
+            "2400 t",
+            "2900 t",
+            "1800 t",
+            "1300 t",
+            "1400 t",
+            "900 t",
+            "1600 t",
+            "600 t",
+            "600 t",
+            "500 t",
+            "550 t",
+            "550 t",
+            "300 t",
         )
 
         newRecyclerView = findViewById(id.recycler_view)
@@ -91,12 +148,21 @@ class MainActivity : AppCompatActivity() {
 
         newArrayList = arrayListOf<menu>()
         getUserdata()
+        pizzaButton.setOnClickListener {
+            newRecyclerView.smoothScrollToPosition(1)
+        }
+        dessertsButton.setOnClickListener {
+            newRecyclerView.smoothScrollToPosition(9)
+        }
+        drinksButton.setOnClickListener {
+            newRecyclerView.smoothScrollToPosition(15)
+        }
     }
 
     private fun getUserdata() {
 
         for (i in imageId.indices) {
-            val Menu = menu(imageId[i],heading[i],new_heading[i])
+            val Menu = menu(imageId[i],heading[i],new_heading[i], prices[i])
             newArrayList.add(Menu)
         }
 
