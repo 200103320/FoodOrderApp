@@ -3,7 +3,11 @@ package com.example.foodorderproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,16 +68,16 @@ class MainActivity : AppCompatActivity() {
             drawable.hoemmade,
             drawable.indeika,
             drawable.mango,
-            drawable.ice_cappu,
-            drawable.chocolate,
+            drawable.cappu,
+            drawable.chocolate_shake,
             drawable.cheesecake,
-            drawable.fondan,
-            drawable.cookie,
-            drawable.cola,
-            drawable.colazero,
-            drawable.fanta,
-            drawable.sprite,
-            drawable.water,
+            drawable.fondan1,
+            drawable.cookies,
+            drawable.cocacola,
+            drawable.cocacolazero,
+            drawable.fanta1,
+            drawable.sprite1,
+            drawable.water1,
         )
 
         heading = arrayOf(
@@ -166,6 +170,20 @@ class MainActivity : AppCompatActivity() {
             newArrayList.add(Menu)
         }
 
-        newRecyclerView.adapter = myAdapter(newArrayList)
+        var adapter = myAdapter(newArrayList)
+        newRecyclerView.adapter = adapter
+        adapter.setOnItemClickListener(object : myAdapter.onItemClickListener {
+            override fun onItemClick(position: Int) {
+
+                val intent = Intent(this@MainActivity, ProductDetails::class.java)
+                intent.putExtra("imageId", newArrayList[position].titleImage)
+                intent.putExtra("heading", newArrayList[position].heading)
+                intent.putExtra("new_heading", newArrayList[position].new_heading)
+                intent.putExtra("prices", newArrayList[position].prices)
+                intent.putExtra("position", position)
+                startActivity(intent)
+            }
+
+        })
     }
 }
