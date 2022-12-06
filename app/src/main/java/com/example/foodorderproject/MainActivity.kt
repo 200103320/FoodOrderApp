@@ -4,8 +4,6 @@ package com.example.foodorderproject
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,10 +12,6 @@ import com.example.foodorderproject.models.Pizza
 import com.example.foodorderproject.room.RegistrationActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.main_page.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dbref : DatabaseReference
     private lateinit var recyclerView: RecyclerView
     private lateinit var pizzaArrayList: ArrayList<Pizza>
+    private lateinit var newArrayList: ArrayList<Pizza>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                    recyclerView.adapter = PizzaAdapter(pizzaArrayList)
+                    recyclerView.adapter = PizzaAdapter(this@MainActivity, pizzaArrayList)
 
                 }
             }
@@ -93,7 +88,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
     }
 
 //        imageId = arrayOf(
