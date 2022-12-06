@@ -18,6 +18,4 @@ class UserEntity {
 
     @ColumnInfo(name = "name")
     var name: String? = null
-
-
 }

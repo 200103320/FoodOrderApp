@@ -1,24 +1,25 @@
 package com.example.foodorderproject
 
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 
-class myAdapter(private val menuList : ArrayList<menu>) :
-    RecyclerView.Adapter<myAdapter.MyViewHolder>() {
 
-    private lateinit var mListener : onItemClickListener
+class MyAdapter(private val menuList : ArrayList<menu>) :
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    interface onItemClickListener{
 
+    private lateinit var mListener : OnItemClickListener
+
+    interface OnItemClickListener{
         fun onItemClick(position: Int)
     }
 
-    fun setOnItemClickListener(listener: onItemClickListener){
+
+    fun setOnItemClickListener(listener: OnItemClickListener){
         
         mListener = listener
         
@@ -34,8 +35,8 @@ class myAdapter(private val menuList : ArrayList<menu>) :
 
         val currentItem = menuList [position]
         holder.titleImage.setImageResource(currentItem.titleImage)
-        holder.Heading.text = currentItem.heading
-        holder.Heading1.text = currentItem.new_heading
+        holder.heading.text = currentItem.heading
+        holder.heading1.text = currentItem.new_heading
         holder.prices.text = currentItem.prices
     }
 
@@ -43,10 +44,10 @@ class myAdapter(private val menuList : ArrayList<menu>) :
         return menuList.size
     }
 
-    class MyViewHolder( itemView : View, listener: onItemClickListener) :  RecyclerView.ViewHolder(itemView){
+    class MyViewHolder( itemView : View, listener: OnItemClickListener) :  RecyclerView.ViewHolder(itemView){
         val titleImage : ShapeableImageView = itemView.findViewById(R.id.title_image)
-        val Heading : TextView = itemView.findViewById(R.id.Heading)
-        val Heading1 : TextView = itemView.findViewById(R.id.Heading1)
+        val heading : TextView = itemView.findViewById(R.id.Heading)
+        val heading1 : TextView = itemView.findViewById(R.id.Heading1)
         val prices : TextView = itemView.findViewById(R.id.button)
 
         init {

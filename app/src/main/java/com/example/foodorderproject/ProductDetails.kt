@@ -8,30 +8,34 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.foodorderproject.databinding.ProductDetailsBinding
 import kotlinx.android.synthetic.main.list_item.*
 import kotlinx.android.synthetic.main.product_details.*
 
 class ProductDetails : AppCompatActivity() {
+    private lateinit var binding: ProductDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setContentView(R.layout.product_details)
         super.onCreate(savedInstanceState)
+        binding = ProductDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val titleImage = findViewById<ImageView>(R.id.imageView7)
-        val product_name = findViewById<TextView>(R.id.textView11)
-        val product_description = findViewById<TextView>(R.id.textView13)
-        val price = findViewById<TextView>(R.id.textView12)
+        val titleImage = binding.imageView7
+        val product_name = binding.textView11
+        val product_description = binding.textView13
+        val price = binding.textView12
 
-        val buttonBig = findViewById<Button>(R.id.button3)
-        val buttonMid = findViewById<Button>(R.id.button5)
-        val buttonSmall = findViewById<Button>(R.id.button7)
-        val buttonTraditional = findViewById<Button>(R.id.button4)
-        val buttonOriginal = findViewById<Button>(R.id.button8)
-        val backButton = findViewById<Button>(R.id.button_back)
+        val buttonBig = binding.button3
+        val buttonMid = binding.button5
+        val buttonSmall = binding.button7
+        val buttonTraditional = binding.button4
+        val buttonOriginal = binding.button8
+        val backButton = binding.buttonBack
+        val cart = binding.button2
 
-        val minus = findViewById<Button>(R.id.imageView8)
-        val plus = findViewById<Button>(R.id.imageView9)
-        var stringCount = findViewById<TextView>(R.id.textView14).toString()
+        val minus = binding.imageView8
+        val plus = binding.imageView9
+        var stringCount = binding.textView14.toString()
 
         val bundle : Bundle? = intent.extras
 
@@ -83,6 +87,9 @@ class ProductDetails : AppCompatActivity() {
         buttonOriginal.setOnClickListener {
             buttonTraditional.setBackgroundResource(R.drawable.pizza_size_button)
             buttonOriginal.setBackgroundResource(R.drawable.pizza_size_button_selected)
+        }
+        cart.setOnClickListener {
+            Toast.makeText(this, "Added to Cart", Toast.LENGTH_SHORT).show()
         }
         minus.setOnClickListener {
             if(count > 1) {
