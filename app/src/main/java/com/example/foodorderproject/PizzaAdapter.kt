@@ -9,20 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodorderproject.models.Pizza
 
-class PizzaAdapter(private val context: android.content.Context, val pizzaList: ArrayList<Pizza>) : RecyclerView.Adapter<PizzaAdapter.PizzaViewHolder>() {
-
-
-    private lateinit var mListener : PizzaAdapter.OnItemClickListener
-
-    interface OnItemClickListener{
-        fun onItemClick(position: Int)
-    }
-
-    fun setOnItemClickListener(listener: PizzaAdapter.OnItemClickListener){
-
-        mListener = listener
-
-    }
+class PizzaAdapter(
+    val pizzaList: ArrayList<Pizza>,
+    val itemClickListener: (Pizza) -> Unit,
+) : RecyclerView.Adapter<PizzaAdapter.PizzaViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaViewHolder {
@@ -40,7 +30,10 @@ class PizzaAdapter(private val context: android.content.Context, val pizzaList: 
         holder.title.text = currentItem.title
         holder.description.text = currentItem.description
         holder.price.text = currentItem.price
-        Glide.with(context).load(currentItem.img).into(holder.img)
+        holder.itemView.setOnClickListener {
+            itemClickListener(currentItem)
+        }
+        Glide.with(holder.itemView.context).load(currentItem.img).into(holder.img)
     }
     override fun getItemCount(): Int {
         return pizzaList.size

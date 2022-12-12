@@ -15,7 +15,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@color/white"
+        android:background="?attr/colorSurface"
         android:backgroundTint="@color/white"
         android:visibility="visible"
         tools:context=".MainActivity">
@@ -32,6 +32,8 @@
             android:layout_weight="1"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:text="Categories"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
             android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -40,7 +42,6 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="#FF9800"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +53,7 @@
 
                 <TextView
                     android:id="@+id/textView"
+                    android:textColor="@color/white"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -60,7 +62,7 @@
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/montserrat_subrayada_bold"
                     android:text="The Fastest Delivery in Delivery Food"
-                    android:textColor="#000000"
+
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/button"
                     app:layout_constraintEnd_toStartOf="@+id/imageView"
@@ -79,6 +81,8 @@
 
                 <Button
                     android:id="@+id/button"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="44dp"
@@ -86,6 +90,7 @@
                     android:layout_marginBottom="26dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/black"
+
                     android:text="Register"
                     app:cornerRadius="100dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -101,8 +106,10 @@
             android:id="@+id/button2"
             android:layout_width="110dp"
             android:layout_height="50dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:textColor="@color/white"
+
             android:layout_marginStart="16dp"
-            android:backgroundTint="@color/orange"
             android:text="Pizza"
             app:cornerRadius="100dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,9 +118,10 @@
         <Button
             android:id="@+id/button4"
             android:layout_width="110dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:textColor="@color/white"
             android:layout_height="50dp"
             android:layout_marginStart="18dp"
-            android:backgroundTint="@color/orange"
             android:text="Dessert"
             app:cornerRadius="100dp"
             app:layout_constraintStart_toEndOf="@+id/button2"
@@ -122,9 +130,10 @@
         <Button
             android:id="@+id/button6"
             android:layout_width="110dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:textColor="@color/white"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
-            android:backgroundTint="@color/orange"
             android:text="Drinks"
             app:cornerRadius="100dp"
             app:layout_constraintStart_toEndOf="@+id/button4"
@@ -132,8 +141,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="340dp"
+            android:layout_height="400dp"
             android:layout_marginTop="24dp"
             android:layout_marginStart="10dp"
             android:scrollbars="vertical"

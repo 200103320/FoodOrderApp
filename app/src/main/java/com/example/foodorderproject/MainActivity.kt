@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         pizzaArrayList = arrayListOf<Pizza>()
         getPizzaData()
-        }
+    }
 
     private fun getPizzaData() {
 
@@ -77,7 +77,9 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                    recyclerView.adapter = PizzaAdapter(this@MainActivity, pizzaArrayList)
+                    recyclerView.adapter = PizzaAdapter(pizzaArrayList) {
+
+                    }
 
                 }
             }
@@ -115,14 +117,14 @@ class MainActivity : AppCompatActivity() {
 //        heading = arrayOf(
 //            "Chorizo Fresh",
 //            "Pepperoni",
-//            "Ham and Cheese",
-//            "Ham and Mushrooms",
+//            "",
+//            "",
 //            "Hawaiian",
 //            "Meat Mix",
 //            "Homemade",
 //            "Turkey with cranberry sauce",
-//            "Mango Shake",
-//            "Ice Cappuchino",
+//            "",
+//            "",
 //            "Chocolate shake",
 //            "Cheesecake",
 //            "Fondan",
@@ -137,14 +139,14 @@ class MainActivity : AppCompatActivity() {
 //        new_heading = arrayOf(
 //            "Tomato sauce, mozzarella, spicy chicken chorizo, sweet pepper",
 //            "Chicken pepperoni, extra mozzarella, tomato sauce",
-//            "Chicken ham, extra mozzarella, alfredo sauce",
-//            "Chicken ham, mushrooms, mozzarella, tomato sauce",
+//            "",
+//            "",
 //            "Chicken ham, pineapples, mozzarella, tomato sauce",
 //            "Turkey pastrami, spicy chicken chorizo, chicken ham, tomato sauce",
 //            "Spicy chicken pepperoni, chicken ham, tomato sauce",
 //            "Turkey, cranberry sauce, cranberries, red onion, alfredo sauce",
-//            "Hot tropical summer in a glass - milkshake with mango puree",
-//            "Cold coffee drink now with a creamy taste.",
+//            "",
+//            "",
 //            "Sweet drink based on milk and ice cream with branded cocoa",
 //            "The favorite of the guests - the most delicate curd cheesecake",
 //            "French dessert with crispy crust and melted chocolate filling",
@@ -193,7 +195,7 @@ class MainActivity : AppCompatActivity() {
 //        drinksButton.setOnClickListener {
 //            newRecyclerView.smoothScrollToPosition(15)
 //        }
-    }
+}
 
 //    private fun getUserdata() {
 //

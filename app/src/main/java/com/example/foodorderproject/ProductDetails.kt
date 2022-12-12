@@ -35,11 +35,11 @@ class ProductDetails : AppCompatActivity() {
 
         val bundle : Bundle? = intent.extras
 
-        val imageId = bundle?.getInt("imageId")
-        val heading = bundle?.getString("heading")
-        val new_heading = bundle?.getString("new_heading")
+        val imageId = bundle?.getInt("img")
+        val heading = bundle?.getString("title")
+        val new_heading = bundle?.getString("description")
         val position = bundle?.getInt("position")
-        val prices = bundle?.getString("prices")
+        val prices = bundle?.getString("price")
 
         if (imageId != null) {
             titleImage.setImageResource(imageId)

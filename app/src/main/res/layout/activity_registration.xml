@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".room.RegistrationActivity">
 
@@ -18,41 +19,69 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/email"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
-        android:hint="Enter Email" />
+        android:hint="Enter Email">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+</com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/password"
+    <com.google.android.material.textfield.TextInputLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_margin="20sp"
         android:hint="Enter Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+</com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:hint="Enter Name" />
+        <com.google.android.material.textfield.TextInputLayout
 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:hint="Enter Name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_margin="20sp"
-        android:backgroundTint="@color/orange"
+        app:cornerRadius="100dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+
         android:text="Register" />
 
     <Button
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:textColor="@color/white"
+        app:cornerRadius="100dp"
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/black"
         android:text="Login" />
 </LinearLayout>
