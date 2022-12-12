@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:backgroundTint="@color/white"
     android:layout_margin="8dp">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -14,8 +12,6 @@
         android:layout_height="120dp"
         android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:scaleType="centerCrop"
         android:src="@drawable/piczcza_pepperoni"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +20,6 @@
 
     <TextView
         android:id="@+id/Heading"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -44,8 +38,6 @@
         android:id="@+id/Heading1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:background="@color/white"
         android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
@@ -62,8 +54,9 @@
         android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:backgroundTint="@color/button"
         android:text="7300 t"
+        android:textColor="@color/buttonNum"
         app:cornerRadius="100dp"
         app:layout_constraintHeight="40dp"
         app:layout_constraintStart_toStartOf="@+id/Heading"

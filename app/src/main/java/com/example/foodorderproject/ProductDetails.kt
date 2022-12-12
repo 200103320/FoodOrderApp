@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.foodorderproject.databinding.ProductDetailsBinding
 import kotlinx.android.synthetic.main.product_details.*
 
@@ -20,6 +21,8 @@ class ProductDetails : AppCompatActivity() {
         val product_name = binding.textView11
         val product_description = binding.textView13
         val price = binding.textView12
+        lateinit var size : String
+        lateinit var type : String
 
         val buttonBig = binding.button3
         val buttonMid = binding.button5
@@ -35,14 +38,14 @@ class ProductDetails : AppCompatActivity() {
 
         val bundle : Bundle? = intent.extras
 
-        val imageId = bundle?.getInt("img")
+        val imageId = bundle?.getString("img")
         val heading = bundle?.getString("title")
         val new_heading = bundle?.getString("description")
         val position = bundle?.getInt("position")
         val prices = bundle?.getString("price")
 
         if (imageId != null) {
-            titleImage.setImageResource(imageId)
+            Glide.with(this).load(imageId).into(titleImage)
         }
         product_name.text = heading
         product_description.text = new_heading

@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
         pizzaArrayList = arrayListOf<Pizza>()
         getPizzaData()
     }
-
     private fun getPizzaData() {
 
         dbref = FirebaseDatabase.getInstance().getReference("Pizzas")
@@ -76,10 +75,8 @@ class MainActivity : AppCompatActivity() {
                         pizzaArrayList.add(pizza!!)
 
                     }
+                    recyclerView.adapter = PizzaAdapter(pizzaArrayList){}
 
-                    recyclerView.adapter = PizzaAdapter(pizzaArrayList) {
-
-                    }
 
                 }
             }
