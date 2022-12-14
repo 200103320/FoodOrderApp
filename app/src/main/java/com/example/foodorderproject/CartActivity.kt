@@ -12,6 +12,7 @@ import com.example.foodorderproject.databinding.CartItemBinding
 import com.example.foodorderproject.databinding.FragmentCartBinding
 import com.example.foodorderproject.databinding.ProductDetailsBinding
 import com.example.foodorderproject.models.Cart
+import com.example.foodorderproject.room.RegistrationActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_cart.*
 
@@ -46,10 +47,6 @@ class CartActivity : AppCompatActivity() {
         binding.total.text = "Make an order for " + total + " tg"
 
         recycler_view.adapter = CartAdapter(cartArrayList)
-        val but = findViewById<Button>(id.but)
-        but.setOnClickListener {
-            Toast.makeText(this, " "+cartArrayList, Toast.LENGTH_SHORT).show()
-        }
 
         // Initialize and assign variable
         val bottomNavigationView = findViewById<BottomNavigationView>(id.bottom_navigation)
@@ -67,7 +64,7 @@ class CartActivity : AppCompatActivity() {
                 }
                 id.cart -> return@OnNavigationItemSelectedListener true
                 id.profile -> {
-                    startActivity(Intent(applicationContext, ProfileActivity::class.java))
+                    startActivity(Intent(applicationContext, RegistrationActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }

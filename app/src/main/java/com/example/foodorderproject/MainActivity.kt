@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 id.profile -> {
-                    startActivity(Intent(applicationContext, ProfileActivity::class.java))
+                    startActivity(Intent(applicationContext, RegistrationActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
