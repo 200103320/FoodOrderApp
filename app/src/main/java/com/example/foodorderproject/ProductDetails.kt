@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.foodorderproject.databinding.ProductDetailsBinding
+import com.example.foodorderproject.models.Cart
 import kotlinx.android.synthetic.main.product_details.*
 
 class ProductDetails : AppCompatActivity() {
@@ -21,8 +22,8 @@ class ProductDetails : AppCompatActivity() {
         val product_name = binding.textView11
         val product_description = binding.textView13
         val price = binding.textView12
-        lateinit var size : String
-        lateinit var type : String
+        var size = button3.text
+        var type = button4.text
 
         val buttonBig = binding.button3
         val buttonMid = binding.button5
@@ -68,27 +69,29 @@ class ProductDetails : AppCompatActivity() {
             buttonMid.setBackgroundResource(R.drawable.pizza_size_button)
             buttonSmall.setBackgroundResource(R.drawable.pizza_size_button)
             buttonBig.setBackgroundResource(R.drawable.pizza_size_button_selected)
+            size = buttonBig.text
         }
         buttonMid.setOnClickListener {
             buttonMid.setBackgroundResource(R.drawable.pizza_size_button_selected)
             buttonSmall.setBackgroundResource(R.drawable.pizza_size_button)
             buttonBig.setBackgroundResource(R.drawable.pizza_size_button)
+            size = buttonMid.text
         }
         buttonSmall.setOnClickListener {
             buttonSmall.setBackgroundResource(R.drawable.pizza_size_button_selected)
             buttonMid.setBackgroundResource(R.drawable.pizza_size_button)
             buttonBig.setBackgroundResource(R.drawable.pizza_size_button)
+            size = buttonSmall.text
         }
         buttonTraditional.setOnClickListener {
             buttonTraditional.setBackgroundResource(R.drawable.pizza_size_button_selected)
             buttonOriginal.setBackgroundResource(R.drawable.pizza_size_button)
+            type = buttonTraditional.text
         }
         buttonOriginal.setOnClickListener {
             buttonTraditional.setBackgroundResource(R.drawable.pizza_size_button)
             buttonOriginal.setBackgroundResource(R.drawable.pizza_size_button_selected)
-        }
-        cart.setOnClickListener {
-            Toast.makeText(this, "Added to Cart", Toast.LENGTH_SHORT).show()
+            type = buttonOriginal.text
         }
         minus.setOnClickListener {
             if(count > 1) {
@@ -100,6 +103,30 @@ class ProductDetails : AppCompatActivity() {
             count ++
             textView14.text = count.toString()
         }
+        val cartArrayList = arrayListOf<Cart>()
+        val car1 = Cart(heading, size as String?, type as String?, imageId, prices, count)
+        var total = 0
+        cart.setOnClickListener {
+
+            val intent = Intent(this, CartActivity::class.java)
+
+            cartArrayList.add(car1)
+            intent.putExtra("cartArr", cartArrayList)
+            total += prices!!.toInt()
+            intent.putExtra("total", total.toString())
+
+//            intent.putExtra("img", imageId)
+//            intent.putExtra("heading", heading)
+//            intent.putExtra("type", type)
+//            intent.putExtra("size", size)
+//            intent.putExtra("count", count)
+//            intent.putExtra("prices", bundle?.getString("price"))
+//            intent.putExtra("position", position)
+            Toast.makeText(this, "Added to Cart "+total, Toast.LENGTH_SHORT).show()
+
+            startActivity(intent)
+        }
+
     }
 
 }

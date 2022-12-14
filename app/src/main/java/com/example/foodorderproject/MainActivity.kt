@@ -59,6 +59,16 @@ class MainActivity : AppCompatActivity() {
 
         pizzaArrayList = arrayListOf<Pizza>()
         getPizzaData()
+
+        pizzaButton.setOnClickListener {
+            recyclerView.smoothScrollToPosition(1)
+        }
+        dessertsButton.setOnClickListener {
+            recyclerView.smoothScrollToPosition(5)
+        }
+        drinksButton.setOnClickListener {
+            recyclerView.smoothScrollToPosition(8)
+        }
     }
     private fun getPizzaData() {
 
@@ -183,15 +193,7 @@ class MainActivity : AppCompatActivity() {
 //
 //        newArrayList = arrayListOf<menu>()
 //        getUserdata()
-//        pizzaButton.setOnClickListener {
-//            newRecyclerView.smoothScrollToPosition(1)
-//        }
-//        dessertsButton.setOnClickListener {
-//            newRecyclerView.smoothScrollToPosition(9)
-//        }
-//        drinksButton.setOnClickListener {
-//            newRecyclerView.smoothScrollToPosition(15)
-//        }
+
 }
 
 //    private fun getUserdata() {
